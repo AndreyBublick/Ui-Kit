@@ -1,11 +1,8 @@
 {
-  "name": "bundlers",
+  "name": "lib-with-storybook-starter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "tsc && vite build",
