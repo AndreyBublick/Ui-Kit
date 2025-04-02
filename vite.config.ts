@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      fileName: 'my-lib',
+      fileName: 'libs-ui',
       formats: ['es'],
-      name: 'Lib-Inctagram',
+      name: 'libs-ui',
       // the proper extensions will be added
     },
     rollupOptions: {
