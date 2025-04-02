@@ -1,26 +1,20 @@
 import { resolve } from 'path'
 
-import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-/*import { dependencies, devDependencies } from './package.json' assert { type: 'json' }*/
-import packageJson from './package.json' assert { type: 'json' }
-
-const { dependencies, devDependencies } = packageJson
-
+import { dependencies, devDependencies } from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
+      // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'src/index.ts'),
-      fileName: 'libs-ui',
-      formats: ['es'],
-      name: 'libs-ui',
       // the proper extensions will be added
+      fileName: 'index',
+      formats: ['es'],
+      name: 'live-bundlers',
     },
     rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
       external: [
         'react/jsx-runtime',
         ...Object.keys(dependencies),
@@ -30,5 +24,4 @@ export default defineConfig({
     sourcemap: true,
     target: 'esnext',
   },
-  plugins: [react()],
 })
